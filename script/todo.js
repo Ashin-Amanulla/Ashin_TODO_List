@@ -12,7 +12,7 @@ function ajax(){
         var output="";
         for(var i=0;i<response.length;i++){
           output+=`<li class="item">
-          <span> <input class="checkbox" type="checkbox" disabled="true">
+          <span> <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'": ''}>
               ${response[i].title}</span>
           <span> <i class="deletebtn fa fa-trash"></i>
           </span>
@@ -26,4 +26,15 @@ function ajax(){
   xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
   xhttp.send();
 }
+
+$("#demo").on('click', 'input.event1', function(row){
+  console.log('\n h', row)
+  if(row.target.checked){ // !stroke out
+    $(`#${row.target.id}`).attr('disabled',true) //strike
+  }else{
+  $(`#${row.target.id}`).attr('disabled',false) // !strike
+
+  }
+  })
 });
+

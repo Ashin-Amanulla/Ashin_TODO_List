@@ -76,6 +76,9 @@ ul {
 .checkbox {
   margin-right: 10px;
 }
+.checkboxcross{
+  text-decoration: line-through;
+}
 
 .deletebtn {
   margin-right: 10px;
