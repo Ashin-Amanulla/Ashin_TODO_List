@@ -44,4 +44,5 @@ $(document).ready(() => {
   $("#logout").click(() => {
     location = "index.html";
   });
+  $("#logout").click();
 })
