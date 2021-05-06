@@ -38,3 +38,7 @@ $("#demo").on('click', 'input.event1', function(row){
   })
 });
 
+$("#logout").click(() => {
+  location = "index.html";
+});
+
