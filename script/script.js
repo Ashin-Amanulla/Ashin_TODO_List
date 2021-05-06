@@ -14,7 +14,7 @@ $(document).ready(function () {
 $(document).ready(() => {
     $("#button1").click(() => {
         if ($("#username").val() == "admin" && $("#pass").val() == "12345") {
-            location = "./todo.html";
+            location = "todo.html";
 
         }
         else {
