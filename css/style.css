@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Mukta", sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
   min-height: 550px;
   background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Yellow-Desk-Simple-Background-Image.jpg);
@@ -19,7 +19,7 @@ body {
 .todo {
   display: flex;
   flex-direction: column;
-  border-color: greenyellow;
+  border-color: antiquewhite;
   border-style: solid;
   position: relative;
   margin: 0 auto;
@@ -30,41 +30,59 @@ body {
   max-width: 700px;
   right: 0;
   left: 0;
-  
+
   /* height: 100%; */
-  background-color: rgba(250, 252, 248, 0.9);
+  background-color: #F4F1E0;
+  color: rgb(7, 7, 7);
+  font-family: "Poppins", sans-serif;
 }
 
-.container {
-  border-color: crimson;
-  border-radius: 5px;
-  border-style: solid;
-  margin: auto;
-  position: relative;
-  height: 150px;
-  background-image: url(https://wallup.net/wp-content/uploads/2017/03/29/477915-photography-simple_background-nature-748x499.jpg);
-  background-size: cover;
-  background-position: center;
+header,
+form {
+  display: flex;
+  justify-content: center;
+  min-height: 5vh;
+  min-width: 10vh;
+  text-align: center;
+  color: crimson;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.card-header{
-  height:140px ;
+
+form input,
+form button {
+  padding: 1px;
+  font-size: 1rem;
+  border: none;
+  background: white;
+}
+form button {
+  color: orange;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button :hover {
+  background: white;
+  color: crimson;
 }
 
 .content {
-  border-color: crimson;
-  border-radius: 5px;
-  border-style: solid;
   position: relative;
   margin-top: 10px;
   height: fit-content;
   text-align: left;
+  color:#144955;
 }
-#demo{
-  height :350px;
+#demo {
+  height: 350px;
   overflow-y: scroll;
   margin: 10px 0px;
 }
-.item{
+.item {
   display: flex;
   /* flex-direction:row; */
   justify-content: space-between;
@@ -76,13 +94,12 @@ ul {
 .checkbox {
   margin-right: 10px;
 }
-.checkboxcross{
+.checkboxcross {
   text-decoration: line-through;
 }
 
 .deletebtn {
   margin-right: 10px;
-
 }
 @media screen and (max-width: 700px) {
   .todo {
