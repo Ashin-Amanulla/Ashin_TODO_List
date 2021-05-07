@@ -13,13 +13,16 @@ $(document).ready(function () {
         var output = "";
         for (var i = 0; i < response.length; i++) {
           output += `<li class="item">
-          <span> <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""
-            }>
-              ${response[i].title}</span>
-          <span> <i class="deletebtn fa fa-trash"></i>
+          <span> 
+          <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""}>
+              <span id="sli${i}" ${response[i].completed ? "class='highlight'" : ""}>${response[i].title}
+              </span>
+          </span>
+          <span> 
+            <button class="btn"><i class="deletebtn fa fa-trash"></i>
+            </button>
           </span>
       </li>`;
-          // output+="<li class='checkbox' type='checkbox' disabled='true'>"++"</li>";
         }
         document.getElementById("demo").innerHTML = output;
       }
@@ -30,40 +33,57 @@ $(document).ready(function () {
 
   //----------------------------To disable checked------------------------------//
 
-  $("#demo").on("click", "input.event1", function (row) {
-    if (row.target.checked) {
-      // !stroke out
-      $(`#${row.target.id}`).attr("disabled", true); //strike
-    } else {
-      $(`#${row.target.id}`).attr("disabled", false); // !strike
-    }
-  });
-});
+  // $("#demo").on("click", "span.event2", function (row) {
+  //   // console.log("\n row", row, $(`${row.target.id}`), `${row.target.id}`)
+  //   if (!row.target.classList.contains("highlight")) {
+  //     // !stroke out
+  //     row.target.classList.add("highlight"); //strike
+  //   } else {
+  //     row.target.classList.remove("highlight"); // !strike
+  //   }
+  // });
 
-
-//---------------------------------------------------------Alert after------------------------------//
-
-$("#demo").click(async function () {
-  var checkboxes = $("input:checkbox:checked").length;
-  console.log("checked", checkboxes);
-  let result = await myPromise(checkboxes);
-  console.log("result", result);
-  if (result) {
-    setTimeout(() => { alert("Congrats. 5 Tasks have been Successfully Completed") }, 300);
-  }
-});
-
-async function myPromise(value) {
-  return new Promise((resolve, reject) => {
-    return value == 95 ? resolve(true) : reject()
-  });
-}
-
-// --------------------------------------------------logout mapping--------------------------------------------//
-
-$(document).ready(function () {
+  // --------------------------------------------------logout mapping--------------------------------------------//
   $("#logout").css("cursor", "pointer");
   $("#logout").click(() => {
     location = "index.html";
   });
+
+  //---------------------------------------------------------Alert after------------------------------//
+
+  $("#demo").on("click", "input.event1", async function (row) {
+    console.log('id', row.target.id)
+    if ($(`#s${row.target.id}`)[0].classList.contains("highlight")) {
+      // !stroke out
+      $(`#s${row.target.id}`)[0].classList.remove("highlight"); // !strike
+    } else {
+      $(`#s${row.target.id}`)[0].classList.add("highlight"); //strike
+
+    }
+
+    var checkboxes = $("input:checkbox:checked").length;
+
+    let result = await myPromise(checkboxes);
+    console.log("result", result);
+    if (result) {
+      setTimeout(() => { alert("Congrats. 5 Tasks have been Successfully Completed") }, 100);
+      click = false;
+    }
+    // }
+
+  });
+
+  async function myPromise(value) {
+    return new Promise((resolve, reject) => {
+      return value == 95 ? resolve(true) : reject()
+    });
+  }
+
 });
+
+
+
+
+
+
+

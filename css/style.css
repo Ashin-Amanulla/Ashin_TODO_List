@@ -32,7 +32,7 @@ body {
   left: 0;
 
   /* height: 100%; */
-  background-color: #F4F1E0;
+  background-color: #f4f1e0;
   color: rgb(7, 7, 7);
   font-family: "Poppins", sans-serif;
 }
@@ -75,7 +75,7 @@ form button :hover {
   margin-top: 10px;
   height: fit-content;
   text-align: left;
-  color:#144955;
+  color: #144955;
 }
 #demo {
   height: 350px;
@@ -106,3 +106,23 @@ ul {
     background-color: olive;
   }
 }
+.btn {
+  padding: 0;
+  border: none;
+  background: none;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.btn :hover{
+
+  background: white;
+  color: crimson;
+  
+}
+
+.highlight, .highlight_stay{
+  color:red;
+  text-decoration: line-through;
+}
+
