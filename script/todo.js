@@ -29,7 +29,7 @@ $(document).ready(function () {
     xhttp.send();
   }
 
-  
+
 
   // --------------------------------------------------logout mapping--------------------------------------------//
   $("#logout").css("cursor", "pointer");
@@ -48,10 +48,10 @@ $(document).ready(function () {
 
     }
 
-      //---------------------------------------------------------Promise------------------------------//
+    //---------------------------------------------------------Promise------------------------------//
 
 
-    var checkboxes = $("input:checkbox:checked").length; 
+    var checkboxes = $("input:checkbox:checked").length;
 
     let result = await myPromise(checkboxes);
     if (result) {
@@ -66,6 +66,12 @@ $(document).ready(function () {
     });
   }
 
+});
+
+//---------------------------------------------------------Refresh------------------------------//
+
+$("#todoh1, #img").click(() => {
+  location.reload();
 });
 
 

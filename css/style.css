@@ -114,15 +114,18 @@ ul {
   outline: none;
 }
 
-.btn :hover{
-
+.btn :hover {
   background: white;
   color: crimson;
-  
 }
 
-.highlight, .highlight_stay{
-  color:red;
+.highlight,
+.highlight_stay {
+  color: red;
   text-decoration: line-through;
 }
 
+#logout:hover, #todoh1:hover {
+  
+  color: crimson;
+}
