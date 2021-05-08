@@ -19,6 +19,8 @@ $(document).ready(() => {
         }
         else {
             alert("email id/password entered is wrong!");
+            location.reload();
+
         }
     });
 });
