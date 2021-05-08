@@ -31,17 +31,7 @@ $(document).ready(function () {
     xhttp.send();
   }
 
-  //----------------------------To disable checked------------------------------//
-
-  // $("#demo").on("click", "span.event2", function (row) {
-  //   // console.log("\n row", row, $(`${row.target.id}`), `${row.target.id}`)
-  //   if (!row.target.classList.contains("highlight")) {
-  //     // !stroke out
-  //     row.target.classList.add("highlight"); //strike
-  //   } else {
-  //     row.target.classList.remove("highlight"); // !strike
-  //   }
-  // });
+  
 
   // --------------------------------------------------logout mapping--------------------------------------------//
   $("#logout").css("cursor", "pointer");
@@ -52,7 +42,6 @@ $(document).ready(function () {
   //---------------------------------------------------------Alert after------------------------------//
 
   $("#demo").on("click", "input.event1", async function (row) {
-    console.log('id', row.target.id)
     if ($(`#s${row.target.id}`)[0].classList.contains("highlight")) {
       // !stroke out
       $(`#s${row.target.id}`)[0].classList.remove("highlight"); // !strike
@@ -61,15 +50,15 @@ $(document).ready(function () {
 
     }
 
+      //---------------------------------------------------------Promise------------------------------//
+
+
     var checkboxes = $("input:checkbox:checked").length;
 
     let result = await myPromise(checkboxes);
-    console.log("result", result);
     if (result) {
       setTimeout(() => { alert("Congrats. 5 Tasks have been Successfully Completed") }, 100);
-      click = false;
     }
-    // }
 
   });
 
