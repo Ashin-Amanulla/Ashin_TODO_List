@@ -6,23 +6,21 @@ $(document).ready(function () {
   function ajax() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-      console.log(this);
-
       if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(this.responseText);
         var output = "";
         for (var i = 0; i < response.length; i++) {
           output += `<li class="item">
           <span> 
-          <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""}>
-              <span id="sli${i}" ${response[i].completed ? "class='highlight'" : ""}>${response[i].title}
+          <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""}>  
+              <span id="sli${i}" ${response[i].completed ? "class='highlight'" : ""}>${response[i].title} 
               </span>
           </span>
           <span> 
             <button class="btn"><i class="deletebtn fa fa-trash"></i>
             </button>
           </span>
-      </li>`;
+      </li>`; //hard-coding the list ; creating unique ids for check boxes, titles for boolean.
         }
         document.getElementById("demo").innerHTML = output;
       }
@@ -43,7 +41,7 @@ $(document).ready(function () {
 
   $("#demo").on("click", "input.event1", async function (row) {
     if ($(`#s${row.target.id}`)[0].classList.contains("highlight")) {
-      // !stroke out
+      // checking
       $(`#s${row.target.id}`)[0].classList.remove("highlight"); // !strike
     } else {
       $(`#s${row.target.id}`)[0].classList.add("highlight"); //strike
@@ -53,7 +51,7 @@ $(document).ready(function () {
       //---------------------------------------------------------Promise------------------------------//
 
 
-    var checkboxes = $("input:checkbox:checked").length;
+    var checkboxes = $("input:checkbox:checked").length; 
 
     let result = await myPromise(checkboxes);
     if (result) {
