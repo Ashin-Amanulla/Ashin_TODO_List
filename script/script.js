@@ -18,7 +18,7 @@ $(document).ready(() => {
 
         }
         else {
-            alert("wrong");
+            alert("email id/password entered is wrong!");
         }
     });
 });
