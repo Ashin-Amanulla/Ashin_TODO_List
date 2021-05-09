@@ -10,14 +10,14 @@ $(document).ready(function () {
         var response = JSON.parse(this.responseText);
         var output = "";
         for (var i = 0; i < response.length; i++) {
-          output += `<li class="item">
+          output += `<li id="bi${i}" class="item">
           <span> 
-          <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""}>  
-              <span id="sli${i}" ${response[i].completed ? "class='highlight'" : ""}>${response[i].title} 
-              </span>
+            <input class="checkbox event1" id="li${i}" type="checkbox"  ${response[i].completed ? "checked disabled='true'" : ""}/>  
+            <span id="sli${i}" ${response[i].completed ? "class='highlight'" : ""}>${response[i].title} 
+            </span>
           </span>
           <span> 
-            <button class="btn"><i class="deletebtn fa fa-trash"></i>
+            <button class="btn"><i id="i${i}" class="deletebtn fa fa-trash"></i>
             </button>
           </span>
       </li>`; //hard-coding the list ; creating unique ids for check boxes, titles for boolean.
@@ -37,7 +37,7 @@ $(document).ready(function () {
     location = "index.html";
   });
 
-  //---------------------------------------------------------Alert after------------------------------//
+  //---------------------------------------------------------Strike Checked------------------------------//
 
   $("#demo").on("click", "input.event1", async function (row) {
     if ($(`#s${row.target.id}`)[0].classList.contains("highlight")) {
@@ -66,14 +66,32 @@ $(document).ready(function () {
     });
   }
 
-});
+  //---------------------------------------------------------Delete list------------------------------//
 
-//---------------------------------------------------------Refresh------------------------------//
 
-$("#todoh1, #img").click(() => {
-  location.reload();
-});
+  $("#demo").on("click", "button.btn", async function (row) {
+    $(`#b${row.target.id}`).fadeOut("normal", function() {
+    $(`#b${row.target.id}`).remove();
+    });
+  });
 
+  //---------------------------------------------------------Mouse over deletebtn style------------------------------//
+
+
+  //---------------------------------------------------------Refresh------------------------------//
+
+  $("#todoh1, #img").click(() => {
+    location.reload();
+  });
+
+
+
+
+
+
+
+
+});  //document.ready ends
 
 
 
